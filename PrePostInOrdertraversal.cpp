@@ -15,7 +15,20 @@ void preorder(struct Node* root) {
         preorder(root->right);
     }
 }
-
+void postorder(struct Node* root){
+    if(root != NULL ){
+    postorder(root->left);
+    postorder(root->right);
+    cout<<root->data<<" ";
+    }
+}
+void inorder(stuct Node* root){
+    if(root!=NULL){
+        inorder(root->left);
+        cout<<root->data<<" ";
+        inorder(root->right);
+    }
+}
 struct Node* createNode(int value) {
     struct Node* n = new Node;
     n->data = value;
@@ -38,5 +51,11 @@ int main() {
     p1->right = p4;
     
     preorder(p);
+    cout<<endl;
+    postorder(p);
+    cout<<endl;
+    inorder(p);
+    cout<<endl;
+    
     return 0;
 }
