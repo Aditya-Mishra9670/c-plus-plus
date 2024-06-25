@@ -103,20 +103,30 @@ void playerB() {
 }
 
 int main() {
-    initializegrid();
-    printgrid();
-    while (true) {
-        if (checkDraw() || checkwin()) break;
-        playerA();
+    char prefer;
+    cout<<"Enter the preference. \n Enter A to play with computer. \n Enter B to play with friend.\n";
+    cout<<"Prefernce : ";
+    cin>>prefer;
+    if(prefer == 'A' || prefer == 'a'){
+        cout<<"Under development please wait .";
+    }else if(prefer == 'B' || prefer =='b'){
+        initializegrid();
         printgrid();
-        if (checkwin() || checkDraw()) break;
-        playerB();
-        printgrid();
-        if (checkDraw() || checkwin()) break;
+        while (true) {
+            if (checkDraw() || checkwin()) break;
+            playerA();
+            printgrid();
+            if (checkwin() || checkDraw()) break;
+            playerB();
+            printgrid();
+            if (checkDraw() || checkwin()) break;
+        }
+        if (!checkwin()) {
+            cout << "The game is a draw." << endl;
+        }
     }
-    if (!checkwin()) {
-        cout << "The game is a draw." << endl;
-    }
+    
+    
     cout << endl << "Thanks for playing the game coded by Aditya Mishra";
     return 0;
 }
